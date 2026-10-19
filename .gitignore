@@ -1,0 +1,19 @@
+# 编译产物与 IDE 配置
+bin/
+target/
+out/
+build/
+*.class
+.settings/
+.idea/
+*.iml
+*.war
+
+# 系统 / 编辑器
+.DS_Store
+Thumbs.db
+*.log
+
+# 上传目录中的用户文件
+src/main/webapp/uploads/avatars/*
+!src/main/webapp/uploads/avatars/.gitkeep

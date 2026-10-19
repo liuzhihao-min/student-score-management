@@ -1,0 +1,322 @@
+/* ===== 全局样式 ===== */
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: "微软雅黑", "Helvetica Neue", Arial, sans-serif;
+    background-image: url('../images/pg.jpg');  /* 背景图片，可根据需要更换 */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 卡片容器 - 所有主要内容区域 */
+.container {
+    max-width: 1400px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(2px);
+    padding: 25px 30px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* 标题样式 */
+h1, h2, h3 {
+    color: #1e3c72;
+    margin-top: 0;
+    border-left: 5px solid #007bff;
+    padding-left: 15px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+/* 菜单栏（导航） */
+.menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: rgba(52, 58, 64, 0.9);
+    border-radius: 40px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(4px);
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 18px;
+    display: inline-block;
+    border-radius: 30px;
+    transition: 0.2s;
+    font-weight: 500;
+}
+
+.menu li a:hover {
+    background: #007bff;
+    transform: scale(1.02);
+}
+
+/* 表单样式 */
+form {
+    margin: 20px 0;
+}
+input, select, button {
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+}
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,123,255,0.5);
+}
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+button:hover {
+    background: #0056b3;
+}
+
+/* 表格美化 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+th, td {
+    padding: 12px 10px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+th {
+    background: #007bff;
+    color: white;
+    font-weight: 600;
+}
+tr:hover {
+    background: #f1f9ff;
+}
+
+/* 警告和提示信息 */
+.alert {
+    background: #ffeb3b;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+    color: #856404;
+    border-left: 5px solid #ffc107;
+}
+.fail {
+    background: #ffdddd;
+    color: red;
+    font-weight: bold;
+}
+.success-msg {
+    color: #28a745;
+    background: #e6ffed;
+    padding: 8px;
+    border-radius: 6px;
+}
+.error-msg {
+    color: #dc3545;
+    background: #ffe6e6;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+/* 分页样式 */
+.pagination {
+    margin-top: 25px;
+    text-align: center;
+}
+.pagination a, .pagination span {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 4px;
+    border: 1px solid #ddd;
+    background: white;
+    text-decoration: none;
+    color: #007bff;
+    border-radius: 20px;
+}
+.pagination a:hover {
+    background: #007bff;
+    color: white;
+}
+.pagination span {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        margin: 10px;
+    }
+    .menu {
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 20px;
+        padding: 10px;
+    }
+    .menu li a {
+        text-align: center;
+    }
+    table, th, td {
+        font-size: 12px;
+    }
+}
+/* 自定义模态框（删除确认弹窗） */
+.modal {
+    display: none; /* 默认隐藏 */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* 半透明黑色背景 */
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 0;
+    border-radius: 16px;
+    width: 380px;
+    max-width: 80%;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+    background: #dc3545;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 16px 16px 0 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 25px 20px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    text-align: right;
+    border-top: 1px solid #eee;
+}
+
+.modal-footer button {
+    padding: 8px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.modal-footer .btn-confirm {
+    background-color: #dc3545;
+    color: white;
+}
+.modal-footer .btn-confirm:hover {
+    background-color: #a71d2a;
+}
+.modal-footer .btn-cancel {
+    background-color: #6c757d;
+    color: white;
+}
+.modal-footer .btn-cancel:hover {
+    background-color: #545b62;
+}
+.btn-group a, .btn-group button {
+    flex: 1;  /* 使两个按钮宽度相等 */
+    text-align: center;
+    min-width: 100px;
+}
+.success-msg {
+    text-align: center;
+}
+
+/* 使后台页面白色容器占满大部分屏幕高度（登录页除外） */
+html, body {
+    height: 100%;
+}
+
+body:not(.login-body) {
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body:not(.login-body) .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 40px);  /* 减去 body 的上下 padding */
+    display: flex;
+    flex-direction: column;
+}
+
+body:not(.login-body) .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 70vh;   /* 关键：最小高度为视口高度的70% */
+    display: flex;
+    flex-direction: column;
+}
+.menu-right {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    background: rgba(52, 58, 64, 0.9);
+    border-radius: 40px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(4px);
+    justify-content: flex-end;  /* 关键：右对齐 */
+}
+.menu-student {
+    justify-content: flex-end;
+}
